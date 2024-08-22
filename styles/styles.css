@@ -263,7 +263,12 @@
     padding-top: 100px;
 }
 /*banner*/
-
+.banner{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .banner__wrapper{
     display: flex;
     flex-direction: column;
@@ -287,7 +292,7 @@
     height: 3px;
     position: absolute;
     background-color: var(--orange);
-    bottom: 0px;
+    bottom: 3px;
     right: 0;
 }
 @media (max-width: 1000px) {
@@ -295,7 +300,7 @@
         padding-top: 90px;
     }
     .swiper--banner {
-        height: 200px;
+        height: 35%;
     }
 }
 @media (max-width: 780px) {

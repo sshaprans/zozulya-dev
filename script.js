@@ -4,7 +4,7 @@ const burger = document.querySelector('.btn-burger');
 burger.addEventListener('click', () => {
     document.querySelector('.nav-bar__wrapper').classList.toggle('is-active');
 })
-
+// slider
 const swiperBanner = new Swiper(".swiperBanner", {
     autoplay: {
         delay: 3500,
@@ -42,4 +42,28 @@ const swiperProjects = new Swiper(".swiperProjects", {
             spaceBetween: 60,
         },
     },
+});
+
+// form
+document.getElementById('contacts').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch('./sendMessage.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            let resultDiv = document.getElementById('form-result');
+            if (data.status === 'success') {
+                resultDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 });

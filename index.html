@@ -43,17 +43,17 @@
             <div class="nav-bar__wrapper">
                 <div class="nav-bar__contact">
                     <ul class="nav-bar__social">
-                        <li><a class="nav-bar__social__link" href="#">
+                        <li><a class="nav-bar__social__link" href="https://t.me/zozulyadevelopment">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.9573 1.36555L12.6937 14.0945C12.5229 14.9929 12.0775 15.2165 11.4447 14.7933L7.9957 11.7628L6.33149 13.6713C6.14732 13.8909 5.99329 14.0746 5.63835 14.0746L5.88614 9.88615L12.2784 2.9986C12.5564 2.70314 12.2182 2.53943 11.8465 2.8349L3.944 8.76817L0.541912 7.49846C-0.198109 7.22296 -0.211503 6.61606 0.695944 6.19282L14.0029 0.0798795C14.6191 -0.195622 15.1582 0.243583 14.9573 1.36555Z" fill="#7E7E7E"/>
                             </svg>
                         </a></li>
-                        <li><a class="nav-bar__social__link" href="#">
+                        <li><a class="nav-bar__social__link" href="https://www.facebook.com/profile.php?id=61562452162754">
                             <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.41027 8.37378L8.87672 5.67961H5.95891V3.93126C5.95891 3.19418 6.36649 2.47573 7.67339 2.47573H9V0.182051C9 0.182051 7.79604 0 6.64503 0C4.24188 0 2.67125 1.29029 2.67125 3.62622V5.67961H0V8.37378H2.67125V14.8868C3.20687 14.9612 3.75586 15 4.31509 15C4.87433 15 5.42328 14.9612 5.95891 14.8868V8.37378H8.41027Z" fill="#7E7E7E"/>
                             </svg>
                         </a></li>
-                        <li><a class="nav-bar__social__link" href="#">
+                        <li><a class="nav-bar__social__link" href="https://www.instagram.com/zozulyadevelopment?igsh=MXB5YXJhcWxscjZmbA%3D%3D&utm_source=qr">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.5 3.59888C5.38306 3.59888 3.62903 5.32267 3.62903 7.46984C3.62903 9.61702 5.35282 11.3408 7.5 11.3408C9.64717 11.3408 11.371 9.58678 11.371 7.46984C11.371 5.35291 9.61693 3.59888 7.5 3.59888ZM7.5 9.94968C6.13911 9.94968 5.02016 8.83073 5.02016 7.46984C5.02016 6.10896 6.13911 4.99001 7.5 4.99001C8.86088 4.99001 9.97984 6.10896 9.97984 7.46984C9.97984 8.83073 8.86088 9.94968 7.5 9.94968Z" fill="#7E7E7E"/>
                                 <path d="M11.5222 4.38501C12.0065 4.38501 12.3992 3.99236 12.3992 3.508C12.3992 3.02363 12.0065 2.63098 11.5222 2.63098C11.0378 2.63098 10.6451 3.02363 10.6451 3.508C10.6451 3.99236 11.0378 4.38501 11.5222 4.38501Z" fill="#7E7E7E"/>
@@ -91,6 +91,9 @@
     <section class="banner">
         <div class="swiper swiper--banner swiperBanner">
             <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./img/banner/banner1.webp" alt="banner1">
+                </div>
                 <div class="swiper-slide">
                     <img src="./img/banner/banner2.jpg" alt="banner1">
                 </div>
@@ -308,19 +311,23 @@
     </article>
     <section class="form--wrapper">
         <div class="container">
-            <form action="#" class="form" id="contacts">
+            <form action="sendMessage.php" method="post" class="form" id="contacts">
                 <div class="form__side form__side--left">
                     <h2 class="section__title1 section__title1--form">
                         Зв’язатись з нами
                     </h2>
-                    <input type="text" placeholder="Ім'я" required>
-                    <input type="tel" placeholder="Телефон" required>
-                    <input type="email" placeholder="Пошта">
-                    <textarea class="textarea textarea--mobile" placeholder="Ваше повідомлення"></textarea>
+                    <div id="form-result"></div>
+<!--                    <p class="res-send">Повідомлення успішно відправленно!</p>-->
+<!--                    <p class="res-send">Щось пішло не так!</p>-->
+                    <input type="text" name="name" placeholder="Ім'я" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <input type="email" name="email" placeholder="Пошта">
+                    <textarea class="textarea textarea--mobile" name="message" placeholder="Ваше повідомлення"></textarea>
+
                     <input type="submit" value="Відправити" id="form-btn" class="form-btn">
                 </div>
                 <div class="form__side form__side--area">
-                    <textarea class="textarea" placeholder="Ваше повідомлення"></textarea>
+                    <textarea class="textarea" name="message" placeholder="Ваше повідомлення"></textarea>
                 </div>
             </form>
         </div>

@@ -6,6 +6,7 @@ burger.addEventListener('click', () => {
 })
 // slider
 const swiperBanner = new Swiper(".swiperBanner", {
+
     autoplay: {
         delay: 3500,
         disableOnInteraction: false,
@@ -14,6 +15,7 @@ const swiperBanner = new Swiper(".swiperBanner", {
 });
 const swiperProjects = new Swiper(".swiperProjects", {
     slidesPerView: 1,
+    loop:true,
     spaceBetween: 60,
     autoplay: {
         delay: 3000,

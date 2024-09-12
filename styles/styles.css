@@ -167,7 +167,7 @@
 
 /*main*/
 
-/*banner*/
+/*main-slider*/
 .banner{
     height: 100vh;
     display: flex;
@@ -201,7 +201,7 @@
     bottom: 3px;
     right: 0;
 }
-/*banner end*/
+/*main-slider end*/
 /*about*/
 .about__wrapper{
     margin-top: 60px;

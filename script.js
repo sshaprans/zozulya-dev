@@ -50,10 +50,10 @@ const swiperProjects = new Swiper(".swiperProjects", {
     slidesPerView: 1,
     loop:true,
     spaceBetween: 60,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 4000,
+    //     disableOnInteraction: false,
+    // },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -82,11 +82,12 @@ const swiperProjectPage = new Swiper(".swiperProjectPage--thumb", {
     spaceBetween: 10,
     slidesPerView: 4,
     watchSlidesProgress: true,
-    autoplay: {
-        delay: 3500,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 3500,
+    //     disableOnInteraction: false,
+    // },
     loop:true,
+    direction: "vertical",
 });
 const swiperProjectPageThumb = new Swiper(".swiperProjectPage", {
     spaceBetween: 10,
@@ -97,9 +98,9 @@ const swiperProjectPageThumb = new Swiper(".swiperProjectPage", {
     thumbs: {
         swiper: swiperProjectPage,
     },
-    autoplay: {
-        delay: 3500,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 3500,
+    //     disableOnInteraction: false,
+    // },
     loop:true,
 });

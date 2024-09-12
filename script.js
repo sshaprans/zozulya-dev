@@ -39,7 +39,7 @@ document.getElementById('contacts').addEventListener('submit', function(event) {
 
 // slider
 const swiperBanner = new Swiper(".swiperBanner", {
-
+    lazy: true,
     autoplay: {
         delay: 4500,
         disableOnInteraction: false,
@@ -47,13 +47,14 @@ const swiperBanner = new Swiper(".swiperBanner", {
     loop:true,
 });
 const swiperProjects = new Swiper(".swiperProjects", {
+    lazy: true,
     slidesPerView: 1,
     loop:true,
     spaceBetween: 60,
-    // autoplay: {
-    //     delay: 4000,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -79,17 +80,19 @@ const swiperProjects = new Swiper(".swiperProjects", {
     },
 });
 const swiperProjectPage = new Swiper(".swiperProjectPage--thumb", {
+    lazy: true,
     spaceBetween: 10,
     slidesPerView: 4,
     watchSlidesProgress: true,
-    // autoplay: {
-    //     delay: 3500,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+        delay: 3500,
+        // disableOnInteraction: false,
+    },
     loop:true,
     direction: "vertical",
 });
 const swiperProjectPageThumb = new Swiper(".swiperProjectPage", {
+    lazy: true,
     spaceBetween: 10,
     navigation: {
         nextEl: ".swiper-button-next",
@@ -98,9 +101,9 @@ const swiperProjectPageThumb = new Swiper(".swiperProjectPage", {
     thumbs: {
         swiper: swiperProjectPage,
     },
-    // autoplay: {
-    //     delay: 3500,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+        delay: 3500,
+        // disableOnInteraction: false,
+    },
     loop:true,
 });

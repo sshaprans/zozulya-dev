@@ -414,7 +414,9 @@
     display: flex;
     justify-content: space-between;
     gap: 160px;
-
+}
+.career__img{
+    max-width: 350px;
 }
 
 /*career end*/

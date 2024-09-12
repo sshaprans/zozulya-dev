@@ -1,8 +1,8 @@
 /*banner*/
 .swiper--banner{
-    width: 100%;
+    width: calc(100% - 3px);
     height: 50%;
-    margin-bottom: 60px;
+    margin: 0 auto 60px;
 }
 .swiper-slide img {
     display: block;

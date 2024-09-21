@@ -5,6 +5,14 @@
         gap: 200px;
     }
 }
+@media (max-width: 1300px) {
+    .shop__product__title {
+        font-size: 18px;
+    }
+    .shop__product {
+        padding: 10px 20px;
+    }
+}
 @media (max-width: 1230px) {
     .text__list--about {
         padding-right: 0;
@@ -91,10 +99,13 @@
 }
 @media (max-width: 1100px){
     .projects-page {
-        padding-top: 20px;
+        /*padding-top: 20px;*/
     }
     .projects-page__wrapper {
         margin-top: 50px;
+    }
+    .shop__product {
+        width: calc(100% / 2 - 25px);
     }
 }
 @media(max-width: 1090px){
@@ -216,6 +227,9 @@
         top: 90px;
     }
 }
+@media (max-width: 950px){
+
+}
 @media(max-width: 920px){
     .text__item:before {
         left: -25px;
@@ -230,6 +244,20 @@
     }
     .text__item {
         font-size: 16px;
+    }
+}
+@media (max-width: 880px){
+    .shop__product__title {
+        font-size: 16px;
+    }
+    .sidebar__list__item--title {
+        font-size: 18px;
+    }
+    .sidebar__category__link {
+        font-size: 16px;
+    }
+    .sidebar__list__item {
+        padding: 15px 20px;
     }
 }
 @media (max-width: 850px) {
@@ -253,6 +281,9 @@
     }
     .career__content {
         gap: 80px;
+    }
+    .shop__product {
+        width: 100%;
     }
 }
 @media (max-width: 780px){
@@ -585,14 +616,15 @@
     .contact_page__content__side__block {
         gap: 20px;
     }
+    .shop__wrapper {
+        flex-direction: column;
+    }
+    .sidebar__list {
+        min-width: 100%;
+    }
 }
 @media (max-width: 558px) {
-    .text__title--projects-page{
-        display: none;
-    }
-    .text__title--projects-page--mobile{
-        display: block;
-    }
+
     .projects-page__project {
         gap: 30px;
         flex-direction: column;
@@ -609,7 +641,13 @@
     }
     .container--header {
         padding: 8px 10px;
-
+    }
+    .text__title--projects-page{
+        display: none;
+    }
+    .text__title--projects-page--mobile{
+        display: block;
+        margin-bottom: 15px;
     }
     .about__img {
         width: 100%;
@@ -639,9 +677,6 @@
     }
     .contact_page__content__side {
         gap: 20px;
-    }
-    .projects-page {
-        padding-top: 70px;
     }
     .projects-page__project__text {
         gap: 20px;

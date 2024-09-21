@@ -192,7 +192,8 @@
 .about__wrapper:after,
 .projects__wrapper:after,
 .career__wrapper:after,
-.projects-page__project:after{
+.projects-page__project:after,
+.shop__wrapper:after{
     content: "";
     width: 50%;
     height: 3px;
@@ -288,7 +289,8 @@
 .contact_page__content:after,
 .services__wrapper:after,
 .projects-page__wrapper:after,
-.project-page__wrapper:after{
+.project-page__wrapper:after,
+.partners__wrapper:after{
     content: "";
     position: absolute;
     width: 100%;
@@ -768,7 +770,7 @@
 
 /*projects-page*/
 .projects-page{
-    padding-top: 40px;
+    /*padding-top: 40px;*/
 }
 
 .projects-page__wrapper{
@@ -872,3 +874,90 @@
     margin-bottom: 80px;
 }
 /*project-page end*/
+
+
+/*shop*/
+
+.shop__wrapper{
+    display: flex;
+    gap: 50px;
+    padding-bottom: 70px;
+    margin-bottom: 80px;
+    position: relative;
+
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+.sidebar__list{
+    min-width: 280px;
+    max-width: 300px;
+    border-radius: 2px;
+    border: 1px solid var(--grey-light);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.sidebar__list__item{
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--grey-light);
+    position: relative;
+}
+.sidebar__category__link{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black);
+}
+.sidebar__list__item--title{
+    font-size: 20px;
+    color: #fff;
+    background-color: var(--orange);
+}
+.shop__block{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.shop__product{
+    width: calc(100% / 3 - 25px);
+    padding: 25px 40px;
+    border-radius: 2px;
+    border: 1px solid var(--grey-light);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.shop__product .link-btn{
+    margin-left: 0;
+}
+.btn--product-cart{
+    margin-top: auto;
+}
+.shop__product__title{
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--black)
+}
+
+.partners__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: space-around;
+    position: relative;
+    margin-bottom: 80px;
+    padding-bottom: 70px;
+}
+.partners__wrapper__img{
+    object-fit: contain;
+}
+.shop__product__img{
+    object-fit: contain;
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*shop end*/

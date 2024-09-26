@@ -33,7 +33,7 @@
 .swiper-button-next,
 .swiper-button-prev{
     top: 145px;
-    transition: all .3s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 .swiper-button-next:hover{
     transform: scale(1.3) translate(5px, -2px);
@@ -42,7 +42,7 @@
     transform: scale(1.3) translate(-5px, -2px);
 }
 .swiper--projects__title{
-    transition: all .3s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 .swiper--projects__link:hover .swiper--projects__title{
     background-color: var(--orange);

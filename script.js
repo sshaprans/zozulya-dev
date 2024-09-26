@@ -1,4 +1,4 @@
-// header
+
 window.onscroll = function() {
     const header = document.getElementById("header");
     if (window.scrollY > 0) {
@@ -7,94 +7,76 @@ window.onscroll = function() {
         header.classList.remove("header-opacity");
     }
 };
-const burger = document.getElementById('js_menu_button');
-burger.addEventListener('click', () => {
-    document.querySelector('.nav-bar__wrapper').classList.toggle('is-active');
-    document.querySelector('.menu_button').classList.toggle('on_menu');
-    document.querySelector('body').classList.toggle('body-hidden');
-    document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
+
+
+function clearActiveClasses() {
+    document.body.classList.remove('body-hidden');
+    document.querySelectorAll('.nav-bar__submenu').forEach(sub => {
         sub.classList.remove('nav-bar__submenu--active');
     });
-
-})// Скрипт для додавання/видалення класу при натисканні на елементи меню
-const linkList = document.querySelectorAll('.nav-bar__item .effect_line');
-const submenuLinks = document.querySelectorAll('.nav-bar__submenu__link');
-
-linkList.forEach(link => {
-    link.addEventListener('click', () => {
-        const dataMenu = link.getAttribute('data-menu');
-        const subMenu = document.querySelector(`.nav-bar__submenu[data-menu-sub="${dataMenu}"]`);
-        const navBarWrapper = link.closest('.nav-bar__wrapper');
-
-        // Перевірка наявності класу is-active
-        if (navBarWrapper && navBarWrapper.classList.contains('is-active')) {
-            if (subMenu.classList.contains('nav-bar__submenu--active')) {
-                subMenu.classList.remove('nav-bar__submenu--active');
-            } else {
-                document.querySelectorAll('.nav-bar__submenu').forEach(sub => {
-                    sub.classList.remove('nav-bar__submenu--active');
-                });
-                subMenu.classList.add('nav-bar__submenu--active');
-            }
-        } else {
-            document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
-                sub.classList.remove('nav-bar__submenu--active');
-            });
-        }
+    document.querySelector('.menu_button').classList.remove('on_menu');
+    document.querySelector('.nav-bar__wrapper').classList.remove('is-active');
+    document.querySelectorAll('.menu_arrow--mobile').forEach(arrow => {
+        arrow.style.transform = 'rotate(0deg)';
+        arrow.style.fill = 'var(--orange)';
     });
+}
+function checkWrapperActiveState() {
+    const navBarWrapper = document.querySelector('.nav-bar__wrapper');
+    if (!navBarWrapper.classList.contains('is-active')) {
+        clearActiveClasses();
+    }
+}
+function toggleSubMenu(link) {
+    const dataMenu = link.getAttribute('data-menu');
+    const subMenu = document.querySelector(`.nav-bar__submenu[data-menu-sub="${dataMenu}"]`);
+    const navBarWrapper = link.closest('.nav-bar__wrapper');
+    const arrow = link.querySelector('.menu_arrow--mobile');
+
+    if (subMenu.classList.contains('nav-bar__submenu--active')) {
+        subMenu.classList.remove('nav-bar__submenu--active');
+        arrow.style.transform = 'rotate(0deg)';
+        arrow.style.fill = '#E4E5E8';
+        link.classList.remove('on_menu');
+    } else {
+        subMenu.classList.add('nav-bar__submenu--active');
+        arrow.style.transform = 'rotate(180deg)';
+        arrow.style.fill = '#FCC341';
+        link.classList.add('on_menu');
+        navBarWrapper.classList.add('is-active');
+    }
+    checkWrapperActiveState();
+}
+const linkList = document.querySelectorAll('.nav-bar__item .nav-bar__item__btn');
+linkList.forEach(link => {
+    link.addEventListener('click', () => toggleSubMenu(link));
 });
 
-// Скрипт для видалення активних класів при натисканні на submenu__link
+const submenuLinks = document.querySelectorAll('.nav-bar__submenu__link');
 submenuLinks.forEach(link => {
     link.addEventListener('click', () => {
-        // Видалення класів у підменю
-        document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
-            sub.classList.remove('nav-bar__submenu--active');
-        });
-
-        // Видалення класу is-active з wrapper
-        const navBarWrapper = link.closest('.nav-bar__wrapper');
-        if (navBarWrapper) {
-            navBarWrapper.classList.remove('is-active');
-            document.querySelector('.menu_button').classList.remove('on_menu')
-        }
+        clearActiveClasses();
+        checkWrapperActiveState();
     });
 });
 
+const menuButton = document.querySelector('.menu_button');
+menuButton.addEventListener('click', () => {
+    const navBarWrapper = document.querySelector('.nav-bar__wrapper');
 
-// listItems.forEach(item => {
-//     item.addEventListener('mouseenter', () => {
-//         const dataServices = item.getAttribute('data-services');
-//         carBox.forEach(car => {
-//             const pic = car.getAttribute('data-services-pic');
-//             if(dataServices === pic) {
-//                 car.classList.add('opacity_norm')
-//             }
-//             if(dataServices === pic && pic >= 5 && pic <= 6 ) {
-//                 car.classList.add('opacity_light')
-//             }
-//         })
-//     });
-//     item.addEventListener('mouseleave', () => {
-//         carBox.forEach(pic => pic.classList.remove('opacity_norm', 'opacity_light'));
-//     });
-// });
+    navBarWrapper.classList.toggle('is-active');
+    menuButton.classList.toggle('on_menu');
+
+    if (navBarWrapper.classList.contains('is-active')) {
+        document.body.classList.add('body-hidden');
+
+    } else {
+        menuButton.classList.remove('on_menu');
+        clearActiveClasses();
+    }
+});
 
 
-
-
-// window.onscroll = function() {
-//     const header = document.getElementById("header");
-//     const totalHeight = document.documentElement.scrollHeight;
-//     const visibleHeight = window.innerHeight;
-//     const scrolledHeight = window.scrollY + visibleHeight;
-//
-//     if (scrolledHeight >= totalHeight) {
-//         header.classList.remove("header-opacity");
-//     } else {
-//         header.classList.remove("header-opacity");
-//     }
-// };
 
 // form sender
 document.getElementById('contacts').addEventListener('submit', function(event) {

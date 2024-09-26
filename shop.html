@@ -68,15 +68,85 @@
                     </ul>
                 </div>
                 <ul class="nav-bar__menu">
-                    <li class="effect_line effect_line--orange"><a class="nav-bar__menu__link" href="#about">Про нас</a></li>
-                    <li class="effect_line effect_line--orange"><a class="nav-bar__menu__link" href="#services">Послуги</a></li>
-                    <li class="effect_line effect_line--orange"><a class="nav-bar__menu__link" href="./shop.html">Магазин</a></li>
-                    <li class="effect_line effect_line--orange"><a class="nav-bar__menu__link" href="./projects.html">Проєкти</a></li>
-                    <li class="effect_line effect_line--orange"><a class="nav-bar__menu__link" href="#career">Кар'єра</a></li>
-                    <li class="effect_line effect_line--orange"><a class="nav-bar__menu__link" href="./contacts.html">Контакти</a></li>
+                    <li class="nav-bar__item">
+                        <div class="effect_line effect_line--orange" data-menu="1">
+                            <span class="nav-bar__menu__link">Про нас</span>
+                        </div>
+                        <ul class="nav-bar__submenu" data-menu-sub="1">
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#">Кар'єра</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="./index.html#about">Команда</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#">Ліцензії</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-bar__item">
+                        <div class="effect_line effect_line--orange" data-menu="2">
+                            <span class="nav-bar__menu__link">Магазин</span>
+                        </div>
+                        <ul class="nav-bar__submenu" data-menu-sub="2">
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="./shop.html#panel">Панелі</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="./shop.html#battery">Батареї</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#">Інвертори</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-bar__item">
+                        <div class="effect_line effect_line--orange" data-menu="3">
+                            <span class="nav-bar__menu__link">Послуги</span>
+                        </div>
+                        <ul class="nav-bar__submenu" data-menu-sub="3">
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#services">Будівництво Сонячних станцій "під ключ"</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#services">
+                                    Постачання матеріалів та обладнання
+                                </a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#services">Послуги проєктування</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#services">Підключення по зеленому тарифу</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#services">Енергосервіс</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-bar__item">
+                        <div class="effect_line effect_line--orange" data-menu="4">
+                            <span class="nav-bar__menu__link">Діяльність</span>
+                        </div>
+                        <ul class="nav-bar__submenu" data-menu-sub="4">
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link click-close" href="./projects.html">Проєкти</a>
+                            </li>
+                            <li class="effect_line effect_line--orange nav-bar__submenu__item">
+                                <a class="nav-bar__submenu__link" href="#">Новини</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="effect_line effect_line--orange">
+                        <a class="nav-bar__menu__link" href="./contacts.html">Контакти</a>
+                    </li>
                 </ul>
             </div>
-            <button class="btn-burger"></button>
+            <button id="js_menu_button" class="menu_button">
+                <span class="menu_button_line top"></span>
+                <span class="menu_button_line mid"></span>
+                <span class="menu_button_line bot"></span>
+            </button>
             <ul class="language">
                 <li class="language__item">
                     <a href="" class="language__link language__link--active">Укр</a>

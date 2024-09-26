@@ -7,74 +7,95 @@ window.onscroll = function() {
         header.classList.remove("header-opacity");
     }
 };
+// Константи
+const linkList = document.querySelectorAll('.nav-bar__item .effect_line');
+const submenuLinks = document.querySelectorAll('.nav-bar__submenu__link');
+const menuButton = document.querySelector('.menu_button');
+const navBarWrapper = document.querySelector('.nav-bar__wrapper');
+const mobileArrows = document.querySelectorAll('.menu_arrow--mobile');
 
-
-function clearActiveClasses() {
-    document.body.classList.remove('body-hidden');
-    document.querySelectorAll('.nav-bar__submenu').forEach(sub => {
-        sub.classList.remove('nav-bar__submenu--active');
-    });
-    document.querySelector('.menu_button').classList.remove('on_menu');
-    document.querySelector('.nav-bar__wrapper').classList.remove('is-active');
-    document.querySelectorAll('.menu_arrow--mobile').forEach(arrow => {
-        arrow.style.transform = 'rotate(0deg)';
-        arrow.style.fill = 'var(--orange)';
-    });
-}
-function checkWrapperActiveState() {
-    const navBarWrapper = document.querySelector('.nav-bar__wrapper');
-    if (!navBarWrapper.classList.contains('is-active')) {
-        clearActiveClasses();
-    }
-}
-function toggleSubMenu(link) {
-    const dataMenu = link.getAttribute('data-menu');
-    const subMenu = document.querySelector(`.nav-bar__submenu[data-menu-sub="${dataMenu}"]`);
-    const navBarWrapper = link.closest('.nav-bar__wrapper');
-    const arrow = link.querySelector('.menu_arrow--mobile');
-
-    if (subMenu.classList.contains('nav-bar__submenu--active')) {
-        subMenu.classList.remove('nav-bar__submenu--active');
-        arrow.style.transform = 'rotate(0deg)';
-        arrow.style.fill = '#E4E5E8';
-        link.classList.remove('on_menu');
-    } else {
-        subMenu.classList.add('nav-bar__submenu--active');
-        arrow.style.transform = 'rotate(180deg)';
-        arrow.style.fill = '#FCC341';
-        link.classList.add('on_menu');
-        navBarWrapper.classList.add('is-active');
-    }
-    checkWrapperActiveState();
-}
-const linkList = document.querySelectorAll('.nav-bar__item .nav-bar__item__btn');
+// Функція для відкриття/закриття підменю
 linkList.forEach(link => {
-    link.addEventListener('click', () => toggleSubMenu(link));
+    link.addEventListener('click', () => {
+        const dataMenu = link.getAttribute('data-menu');
+        const subMenu = document.querySelector(`.nav-bar__submenu[data-menu-sub="${dataMenu}"]`);
+        const arrow = link.querySelector('.menu_arrow--mobile');
+
+        // Перевірка: якщо підменю вже відкрите, закриваємо його
+        if (subMenu.classList.contains('nav-bar__submenu--active')) {
+            subMenu.classList.remove('nav-bar__submenu--active');
+            link.classList.remove('on_menu');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+            arrow.style.fill = '#E4E5E8';
+        } else {
+            // Закриваємо всі інші підменю перед відкриттям нового
+            document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
+                sub.classList.remove('nav-bar__submenu--active');
+            });
+            document.querySelectorAll('.nav-bar__item .effect_line.on_menu').forEach(item => {
+                item.classList.remove('on_menu');
+            });
+            document.querySelectorAll('.menu_arrow--mobile').forEach(arrow => {
+                arrow.style.transform = 'rotate(0deg)';
+                arrow.style.fill = '#E4E5E8';
+            });
+
+            // Відкриваємо нове підменю і перевертаємо стрілку
+            subMenu.classList.add('nav-bar__submenu--active');
+            link.classList.add('on_menu');
+            if (arrow) {
+                arrow.style.transform = 'rotate(180deg)';
+                arrow.style.fill = '#FCC341';
+
+            }
+        }
+    });
 });
 
-const submenuLinks = document.querySelectorAll('.nav-bar__submenu__link');
+// Видалення активних класів при кліку на submenu__link
 submenuLinks.forEach(link => {
     link.addEventListener('click', () => {
-        clearActiveClasses();
-        checkWrapperActiveState();
+        document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
+            sub.classList.remove('nav-bar__submenu--active');
+        });
+        document.querySelectorAll('.on_menu').forEach(item => {
+            item.classList.remove('on_menu');
+        });
+        navBarWrapper.classList.remove('is-active');
+        document.body.classList.remove('body-hidden');
+
+        // Повертаємо всі стрілки назад
+        mobileArrows.forEach(arrow => {
+            arrow.style.transform = 'rotate(0deg)';
+            arrow.style.fill = '#E4E5E8';
+        });
     });
 });
 
-const menuButton = document.querySelector('.menu_button');
+// Додавання/видалення класів для кнопки меню
 menuButton.addEventListener('click', () => {
-    const navBarWrapper = document.querySelector('.nav-bar__wrapper');
-
     navBarWrapper.classList.toggle('is-active');
     menuButton.classList.toggle('on_menu');
+    document.body.classList.toggle('body-hidden');
 
-    if (navBarWrapper.classList.contains('is-active')) {
-        document.body.classList.add('body-hidden');
+    // Якщо is-active видалено, очищуємо всі активні стани і повертаємо стрілки
+    if (!navBarWrapper.classList.contains('is-active')) {
+        document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
+            sub.classList.remove('nav-bar__submenu--active');
+        });
+        document.querySelectorAll('.on_menu').forEach(item => {
+            item.classList.remove('on_menu');
+        });
+        mobileArrows.forEach(arrow => {
+            arrow.style.transform = 'rotate(0deg)';
+            arrow.style.fill = '#E4E5E8';
 
-    } else {
-        menuButton.classList.remove('on_menu');
-        clearActiveClasses();
+        });
     }
 });
+
+
+
 
 
 

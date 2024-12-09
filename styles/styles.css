@@ -149,6 +149,7 @@
     font-weight: 600;
     color: var(--black);
     position: relative;
+    cursor: pointer;
 }
 .nav-bar__submenu__link{
     display: block;
@@ -388,7 +389,8 @@
 .textarea--mobile,
 .text__title--projects-page--mobile,
 .banner-page--mobile,
-.menu_arrow--mobile{
+.menu_arrow--mobile,
+.nav-bar__item--shop_mobile{
     display: none;
 }
 .contact_page__content:after,
@@ -450,6 +452,7 @@
     opacity: 0;
     transition: all .4s ease-in-out;
     border-radius: 3px;
+    cursor: help;
 }
 .services__plan__img:hover .glass{
     opacity: 0.85;

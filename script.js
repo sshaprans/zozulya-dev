@@ -1,4 +1,4 @@
-
+//heaedr
 window.onscroll = function() {
     const header = document.getElementById("header");
     if (window.scrollY > 0) {
@@ -7,28 +7,24 @@ window.onscroll = function() {
         header.classList.remove("header-opacity");
     }
 };
-// Константи
 const linkList = document.querySelectorAll('.nav-bar__item .effect_line');
 const submenuLinks = document.querySelectorAll('.nav-bar__submenu__link');
 const menuButton = document.querySelector('.menu_button');
 const navBarWrapper = document.querySelector('.nav-bar__wrapper');
 const mobileArrows = document.querySelectorAll('.menu_arrow--mobile');
 
-// Функція для відкриття/закриття підменю
 linkList.forEach(link => {
     link.addEventListener('click', () => {
         const dataMenu = link.getAttribute('data-menu');
         const subMenu = document.querySelector(`.nav-bar__submenu[data-menu-sub="${dataMenu}"]`);
         const arrow = link.querySelector('.menu_arrow--mobile');
 
-        // Перевірка: якщо підменю вже відкрите, закриваємо його
         if (subMenu.classList.contains('nav-bar__submenu--active')) {
             subMenu.classList.remove('nav-bar__submenu--active');
             link.classList.remove('on_menu');
             if (arrow) arrow.style.transform = 'rotate(0deg)';
             arrow.style.fill = '#E4E5E8';
         } else {
-            // Закриваємо всі інші підменю перед відкриттям нового
             document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
                 sub.classList.remove('nav-bar__submenu--active');
             });
@@ -40,7 +36,6 @@ linkList.forEach(link => {
                 arrow.style.fill = '#E4E5E8';
             });
 
-            // Відкриваємо нове підменю і перевертаємо стрілку
             subMenu.classList.add('nav-bar__submenu--active');
             link.classList.add('on_menu');
             if (arrow) {
@@ -52,7 +47,6 @@ linkList.forEach(link => {
     });
 });
 
-// Видалення активних класів при кліку на submenu__link
 submenuLinks.forEach(link => {
     link.addEventListener('click', () => {
         document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
@@ -64,7 +58,6 @@ submenuLinks.forEach(link => {
         navBarWrapper.classList.remove('is-active');
         document.body.classList.remove('body-hidden');
 
-        // Повертаємо всі стрілки назад
         mobileArrows.forEach(arrow => {
             arrow.style.transform = 'rotate(0deg)';
             arrow.style.fill = '#E4E5E8';
@@ -72,13 +65,11 @@ submenuLinks.forEach(link => {
     });
 });
 
-// Додавання/видалення класів для кнопки меню
 menuButton.addEventListener('click', () => {
     navBarWrapper.classList.toggle('is-active');
     menuButton.classList.toggle('on_menu');
     document.body.classList.toggle('body-hidden');
 
-    // Якщо is-active видалено, очищуємо всі активні стани і повертаємо стрілки
     if (!navBarWrapper.classList.contains('is-active')) {
         document.querySelectorAll('.nav-bar__submenu--active').forEach(sub => {
             sub.classList.remove('nav-bar__submenu--active');
@@ -96,10 +87,26 @@ menuButton.addEventListener('click', () => {
 
 
 
+// form
+// document.querySelector('input[name="phone"]').addEventListener('input', function(e) {
+//     let input = e.target.value.replace(/\D/g, '');  // Видалити всі символи, крім цифр
+//     let formatted = '+380 (';
+//     console.log(formatted.length);
+//     if (input.length > 6) {
+//         formatted += input.substring(0, 2) + ') ';
+//     }
+//     if (input.length > 5) {
+//         formatted += input.substring(2, 5) + '-';
+//     }
+//     if (input.length > 7) {
+//         formatted += input.substring(5, 7) + '-';
+//     }
+//     if (input.length > 9) {
+//         formatted += input.substring(7, 9);
+//     }
+//     e.target.value = formatted;
+// });
 
-
-
-// form sender
 document.getElementById('contacts').addEventListener('submit', function(event) {
     event.preventDefault();
 

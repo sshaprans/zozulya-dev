@@ -293,6 +293,10 @@
         opacity: 1;
         visibility: visible;
     }
+    .nav-bar__submenu .effect_line{
+        padding-left: 12px;
+        border-bottom: 1px solid var(--grey);
+    }
 }
 @media (max-width: 780px){
     .nav-bar {
@@ -344,6 +348,12 @@
         display: block;
         margin-right: 20px;
         transition: all .4s ease-in-out;
+    }
+    .nav-bar__item--shop_not-mobile{
+        display: none;
+    }
+    .nav-bar__item--shop_mobile{
+        display: block;
     }
     .nav-bar__item__btn{
         display: flex;

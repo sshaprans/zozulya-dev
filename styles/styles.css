@@ -275,7 +275,9 @@
 }
 
 /*main*/
-
+/*.main{*/
+/*    padding-top: 80px;*/
+/*}*/
 /*main-slider*/
 .banner{
     height: 100vh;
@@ -297,12 +299,29 @@
     font-weight: 500;
     max-width: 585px;
 }
+
+/*тут*/
+/*.shop__category__title {*/
+/*    position: relative;*/
+/*}*/
+
+/*.shop__category__title::before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    height: 80px; !* Розмір відступу *!*/
+/*    margin-top: 80px; !* Зміщення вгору *!*/
+/*    visibility: hidden; !* Робить блок невидимим *!*/
+/*    !*background-color: blue;*!*/
+/*}*/
+/*i tyt*/
+
 .banner__wrapper:after,
 .about__wrapper:after,
 .projects__wrapper:after,
 .career__wrapper:after,
 .projects-page__project:after,
-.shop__wrapper:after{
+.shop__wrapper:after,
+.projects-page__project:after{
     content: "";
     width: 50%;
     height: 3px;
@@ -322,8 +341,7 @@
     position: relative;
 }
 .about__wrapper:after,
-.career__wrapper:after,
-.projects-page__project:after{
+.career__wrapper:after{
     left: 0;
 }
 .section__title1{
@@ -389,8 +407,9 @@
 .textarea--mobile,
 .text__title--projects-page--mobile,
 .banner-page--mobile,
-.menu_arrow--mobile,
-.nav-bar__item--shop_mobile{
+.menu_arrow--mobile
+/*.nav-bar__item--shop_mobile*/
+{
     display: none;
 }
 .contact_page__content:after,
@@ -939,6 +958,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
 }
 .projects-page__project__img{
     border-radius: 3px;
@@ -1001,7 +1021,7 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    gap: 55px;
+    gap: 40px;
 }
 .sidebar__list{
     min-width: 280px;
@@ -1010,7 +1030,7 @@
     border: 1px solid var(--grey-light);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    /*gap: 15px;*/
 }
 .sidebar__list__item{
     padding: 15px 25px;
@@ -1031,6 +1051,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
+    margin-bottom: 70px;
+    /*justify-content: space-between;*/
+}
+.shop__category__title{
+    font-weight: 500;
+    font-size: 22px;
+    color: #fff;
+    background-color: var(--orange);
+    padding: 15px 25px;
+    margin-bottom: 5px;
+    border-radius: 3px;
 }
 .shop__product{
     width: calc(100% / 3 - 25px);

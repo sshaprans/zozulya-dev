@@ -1,7 +1,5 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    header('Content-Type: application/json; charset=utf-8'); // JSON-відповідь
-
     $name = htmlspecialchars($_POST['name']);
     $phone = htmlspecialchars($_POST['phone']);
     $email = htmlspecialchars($_POST['email']);
@@ -16,22 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response = file_get_contents($url);
 
     if ($response) {
-        $responseData = json_decode($response, true);
-
-        if ($responseData && isset($responseData['ok']) && $responseData['ok']) {
-            echo json_encode(["status" => "success", "message" => "Повідомлення успішно надіслано!"]);
-        } else {
-            echo json_encode([
-                "status" => "error",
-                "message" => "Помилка Telegram API: " . (isset($responseData['description']) ? $responseData['description'] : 'Невідома помилка')
-            ]);
-        }
+        echo json_encode(["status" => "success", "message" => "Повідомлення успішно надіслано!"]);
     } else {
-        echo json_encode(["status" => "error", "message" => "Помилка запиту до Telegram API."]);
+        echo json_encode(["status" => "error", "message" => "Помилка відправки повідомлення."]);
     }
-    exit;
-} else {
-    header('HTTP/1.1 405 Method Not Allowed');
-    echo json_encode(["status" => "error", "message" => "Непідтримуваний метод запиту."]);
-    exit;
 }
+?>

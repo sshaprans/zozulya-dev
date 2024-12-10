@@ -1,3 +1,4 @@
+// This file is currently inactive
 // header
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
